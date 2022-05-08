@@ -59,10 +59,6 @@ const SPECIAL_BUTTONS = {
     displayName: 'Ctrl',
     className: 'ctrl',
   },
-  //   '{arrowup}': '↑',
-  //   '{arrowleft}': '←',
-  //   '{arrowdown}': '↓',
-  //   '{arrowright}': '→',
 };
 
 const DEFAULT_LANGUAGE_CODE = 'EN';

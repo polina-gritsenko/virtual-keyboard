@@ -11,12 +11,10 @@ class Keyboard {
     this.keyboardContainer = keyboardContainer;
     this.targetTextarea = targetTextarea;
     this.isCapslock = false;
-    this.keyboardButtonsElements = document.querySelectorAll('.keyboard-button');
   }
 
-  #handleButtonStroke(event) {
+  static #handleButtonStroke(event) {
     const activeButtonElement = document.querySelector(`.keyboard-button[data-key='${event.code}']`);
-    console.log(event.key);
 
     if (activeButtonElement) {
       if (event.type === 'keyup') {
@@ -35,7 +33,6 @@ class Keyboard {
   }
 
   #handleButtonClick(event) {
-    // const textareElement = document.querySelector('textarea');
     if (event.type === 'click') {
       switch (event.target.dataset.key) {
         case 'Backspace': {
@@ -49,36 +46,13 @@ class Keyboard {
               + this.targetTextarea.value.slice(se, ln);
           }
           break;
-          // this.targetTextarea.focus();
-
-          // // text in front of selected text
-          // const textbefore = textareElement.value.substring(0, ss);
-          // // selected text
-          // const textselected = textareElement.value.substring(ss, se);
-          // // text following selected text
-          // const textafter = textareElement.value.substring(se, ln);
-          // if (ss === se) // if no text is selected
-          // {
-          //   textbox.value = textbox.value.substring(0, ss - 1) + textbox.value.substring(se, ln);
-          //   textbox.focus();
-          //   textbox.selectionStart = ss - 1;
-          //   textbox.selectionEnd = ss - 1;
-          // } else // if some text is selected
-          // {
-          //   textbox.value = textbefore + textafter;
-          //   textbox.focus();
-          //   textbox.selectionStart = ss;
-          //   textbox.selectionEnd = ss;
-          // }
         }
         case 'ShiftLeft':
         case 'ShiftRight': {
           break;
         }
         case 'CapsLock': {
-          console.log(this.isCapslock);
           this.isCapslock = !this.isCapslock;
-          console.log(this.isCapslock);
           const layoutType = this.isCapslock ? 'shift' : 'default';
           Keyboard.createButtonsKeys(Utilities.getCurrentLocale(), layoutType);
           break;
@@ -207,6 +181,7 @@ class Keyboard {
         buttonElement.classList.add('keyboard-button');
         const button = rowButtons[j];
         let buttonDisplayName = button;
+
         switch (Utilities.getButtonType(button)) {
           case BUTTON_TYPE_ENUM.FUNCTIONAL: {
             const functionalButton = Utilities.getFunctionalButton(button);
@@ -224,6 +199,7 @@ class Keyboard {
           default:
             break;
         }
+
         buttonElement.setAttribute('data-key', getKeyboardKeysMatrix()[i][j]);
         buttonElement.innerHTML = buttonDisplayName;
         buttonElement.addEventListener('click', (event) => this.#handleButtonClick(event));
@@ -236,8 +212,8 @@ class Keyboard {
     Keyboard.createLanguageSwitcher();
     Keyboard.createShiftHandler();
     Keyboard.createCapsLockHandler();
-    document.addEventListener('keydown', (event) => this.#handleButtonStroke(event));
-    document.addEventListener('keyup', (event) => this.#handleButtonStroke(event));
+    document.addEventListener('keydown', (event) => Keyboard.#handleButtonStroke(event));
+    document.addEventListener('keyup', (event) => Keyboard.#handleButtonStroke(event));
   }
 }
 
