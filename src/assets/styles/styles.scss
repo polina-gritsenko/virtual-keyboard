@@ -18,8 +18,10 @@ body {
 }
 
 textarea {
-    background: #A0A0A0;
+    background: #2e2e2e;
     border-radius: 5px;
+    padding: 20px;
+    border: 20px solid black;
 
     &::placeholder {
         color: white;

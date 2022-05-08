@@ -11,7 +11,7 @@ class Container {
       const description = document.createElement('div');
       description.classList.add('description');
       description.innerText = `Клавиатура создана в операционной системе Windows
-        Для переключения языка комбинация: левыe shift + alt`;
+        Для переключения языка комбинация: левыe ctrl + alt`;
       parentElement.appendChild(description);
     };
 
@@ -28,7 +28,7 @@ class Container {
       input.classList.add('textarea');
       input.placeholder = 'Start typing...';
       input.cols = '80';
-      input.rows = '13';
+      input.rows = '10';
       input.autofocus = true;
 
       parentElement.appendChild(input);
