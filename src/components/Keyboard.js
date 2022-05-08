@@ -7,7 +7,7 @@ import {
 class Keyboard {
   constructor(keyboardContainer, targetTextarea) {
     this.layout = Utilities.getLayout(Utilities.getCurrentLocale())
-     || englishLayout;
+      || englishLayout;
     this.keyboardContainer = keyboardContainer;
     this.targetTextarea = targetTextarea;
     this.isCapslock = false;
@@ -46,7 +46,7 @@ class Keyboard {
             this.targetTextarea.innerHTML = this.targetTextarea.value.slice(0, ss - 1);
           } else {
             this.targetTextarea.innerHTML = this.targetTextarea.value.slice(0, ss)
-            + this.targetTextarea.value.slice(se, ln);
+              + this.targetTextarea.value.slice(se, ln);
           }
           break;
           // this.targetTextarea.focus();
@@ -178,6 +178,11 @@ class Keyboard {
     );
   }
 
+  /**
+   * Listen to change language hotkey, save current locale
+   *
+   */
+  // if is not stable try this: https://plnkr.co/edit/W0sa74x8GS59kXwb?p=preview&preview
   static createLanguageSwitcher() {
     Utilities.setCurrentLocale(Utilities.getCurrentLocale());
     document.addEventListener('keyup', (event) => {
