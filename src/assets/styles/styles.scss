@@ -7,7 +7,6 @@
 
 body {
     background: white;
-    // font-family: Helvetica, sans-serif;
 }
 
 .container {
@@ -49,12 +48,8 @@ textarea {
         gap: 5px;
     }
 
-    // .button-row:not(:last-child) {
-    //     margin-bottom: 5px;
-    // }
 
-
-    .button {
+    .keyboard-button {
         display: inline-block;
         flex-grow: 1;
         cursor: pointer;
@@ -68,15 +63,34 @@ textarea {
         height: 40px;
         justify-content: center;
         color: black;
+
+
+        &:hover {
+            background-color: #eaeaea
+        }
+
+        &:active {
+            background: darken(#eaeaea, 1.5%);
+            box-shadow: 1px 1px 2px rgba(#fff, .2);
+            text-decoration: none;
+            transition: all 25ms linear;
+        }
+
+        &.active {
+            background: darken(#eaeaea, 1.5%);
+            box-shadow: 1px 1px 2px rgba(#fff, .2);
+            text-decoration: none;
+            transition: all 25ms linear;
+        }
     }
 
-    .backspace {}
+    // .backspace {}
 
-    .tab {}
+    // .tab {}
 
-    .del {}
+    // .del {}
 
-    .capslock {}
+    // .capslock {}
 
     .enter,
     .shift {
@@ -86,8 +100,4 @@ textarea {
     .space {
         width: 290px;
     }
-
-    // .button:not(:last-child) {
-    //     margin-right: 5px;
-    // }
 }

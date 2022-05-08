@@ -11,14 +11,14 @@ class Container {
       const description = document.createElement('div');
       description.classList.add('description');
       description.innerText = `Клавиатура создана в операционной системе Windows
-        Для переключения языка комбинация: левыe ctrl + alt`;
+        Для переключения языка комбинация: левыe shift + alt`;
       parentElement.appendChild(description);
     };
 
-    const createKeyboard = (parentElement) => {
+    const createKeyboard = (parentElement, textarea) => {
       const keyboardContainer = document.createElement('div');
       keyboardContainer.classList.add('keyboard');
-      const keyboard = new Keyboard(keyboardContainer);
+      const keyboard = new Keyboard(keyboardContainer, textarea);
       keyboard.init();
       parentElement.appendChild(keyboardContainer);
     };
@@ -27,21 +27,22 @@ class Container {
       const input = document.createElement('textarea');
       input.classList.add('textarea');
       input.placeholder = 'Start typing...';
-      // input.maxLength = "5000";
       input.cols = '80';
       input.rows = '13';
+      input.autofocus = true;
 
       parentElement.appendChild(input);
+      return input;
     };
 
     const createContainer = (parentElement) => {
       const container = document.createElement('div');
       container.classList.add('container');
 
-      createTextarea(container);
-      createKeyboard(container);
-      createDescription(container);
+      const textarea = createTextarea(container);
       parentElement.appendChild(container);
+      createKeyboard(container, textarea);
+      createDescription(container);
     };
     createContainer(this.parentElement);
   }
