@@ -79,7 +79,7 @@ const KEYBOARD_KEYS = [
   'Tab KeyQ KeyW KeyE KeyR KeyT KeyY KeyU KeyI KeyO KeyP BracketLeft BracketRight Backslash',
   'CapsLock KeyA KeyS KeyD KeyF KeyG KeyH KeyJ KeyK KeyL Semicolon Quote Enter',
   'ShiftLeft KeyZ KeyX KeyC KeyV KeyB KeyN KeyM Comma Period Slash ArrowUp ShiftRight',
-  'ControlLeft OSLeft AltLeft Space AltRight ArrowLeft ArrowDown ArrowRight ControlRight',
+  'ControlLeft MetaLeft AltLeft Space AltRight ArrowLeft ArrowDown ArrowRight ControlRight',
 ];
 
 const getKeyboardKeysMatrix = () => {
